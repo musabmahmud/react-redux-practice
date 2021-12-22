@@ -4,10 +4,10 @@ import Shop from './Components/Shop/Shop';
 
 function App() {
   return (
-      <>
+      <div className='body'>
         <Cart></Cart>
         <Shop></Shop>
-      </>  
+      </div>  
   );
 }
 

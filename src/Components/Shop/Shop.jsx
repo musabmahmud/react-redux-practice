@@ -3,19 +3,23 @@ import { connect } from 'react-redux';
 import { addToCart } from '../../redux/actions/cartActions';
 import Product from '../Product/Product';
 
-const Shop = () => {
-    const products = [
-        {productName: "Lenovo Led", id: '1'},
-        {productName: "LF Led", id: '2'},
-        {productName: "Samsung Led", id: '3'},
-        {productName: "Walton Led", id: '4'},
-        {productName: "Env Led", id: '5'},
-    ]
+const Shop = (props) => {
+    console.log(props);
+    const {products, addToCart} = props;
+
+    // const addToCart = () =>{
+    //     console.log('clicked');
+    // }
+
     return (
         <div>
             <h4>This is Shop</h4>
             {
-                products.map(pd => <Product product={pd}></Product>)
+                products.map(pd => 
+                <Product key={pd.id} 
+                product={pd} 
+                addToCart = {addToCart}
+                ></Product>)
             }
         </div>
     );
@@ -27,6 +31,7 @@ const mapStateToProps = (state) => {
         products: state.products
     }
 }
+
 const mapDispatchToProps = {
     addToCart: addToCart
 }
