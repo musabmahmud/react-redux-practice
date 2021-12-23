@@ -8,7 +8,7 @@ const Cart = ({cart, removeFromCart}) => {
             <h5>This is cart</h5>
             <ul>
                 {
-                    // cart.map(ca)
+                    cart.map(item => <li key={item.cartId}>{item.productName} <button onClick={() => removeFromCart(item.cartId)}>X</button></li>)
                 }
             </ul>
         </div>
